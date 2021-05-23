@@ -154,3 +154,16 @@ img.medium {
 .error{
   color:red;
 }
+.alert{
+  padding:1rem;
+  border:0.1rem 1px transparent;
+  border:0.5rem;
+}
+.alert-info{
+  color:blue;
+  background-color: wheat;
+}
+.alert-danger{
+  color:red;
+  background-color: wheat;
+}
