@@ -1,32 +1,20 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+
 import Product from "../components/Product";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { listProducts } from "../actions/productActions";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function HomeScreen() {
-  //define a React hook:
-  const [products, setProducts] = useState([]);
-  //another hook to show loading process of fetching data from backend
-  const [error, setError] = useState(false);
-  //hook for error
-  const [loading, setLoading] = useState(false);
-  //useEffect function
+  const dispatch = useDispatch();
+  //we can use react redux easily other than using ajax requests
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
+  //dispatch the action
   useEffect(() => {
-    //sends ajax request to backend to fetch products
-    const fetchData = async () => {
-      try {
-        //loading the data
-        setLoading(true);
-        const { data } = await axios.get("/api/products");
-        setLoading(false);
-        setProducts(data);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-    fetchData();
+    //using react redux to send request is easier than using ajax
+    dispatch(listProducts());
   }, []);
   //check if any error exists, if not return products
   return (
