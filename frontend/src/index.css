@@ -73,6 +73,9 @@ ul{
 li{
   margin-top: 1rem;
 }
+input,
+select,
+textarea,
 button{
   padding:1rem;
   border-radius: 0.5rem;
@@ -88,6 +91,9 @@ button{
 button.block{
   width:100%;
 }
+input:hover,
+select:hover,
+textarea:hover,
 button:hover{
   background-color: violet;
 }
