@@ -65,6 +65,14 @@ a.brand {
   font-size: 3rem;
   font-weight: bold;
 }
+.badge{
+  background-color: red ;
+  color:white;
+  border-radius: 50%;
+  padding:0.2rem 0.7rem;
+  font-size: 1.4rem;
+  margin-left: 0.2rem;
+}
 ul{
   padding:0;
   margin:0;
@@ -117,13 +125,22 @@ img.large{
 }
 .col-1{
   flex:1 1 25rem;
+  padding-left: 2rem;
+  padding-top: 7.2rem;
 }
 .col-2{
   flex:2 1 50rem;
 }
+.min-30{
+  min-width: 30rem;
+}
 /* Image */
 img {
   border-radius: 0.5rem;
+}
+img.small{
+  max-width: 10rem;
+  width:100%
 }
 img.medium {
   max-width: 29rem;

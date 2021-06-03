@@ -1,22 +1,34 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import { BrowserRouter, Route } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+//if you use anchor on links it automatically refreshes the page thats why i will use link instead of anchor
 
 function App() {
+  //to display the count of objects in the cart in real time to the user i first should access the cartItems
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
   return (
     <BrowserRouter>
       <div className="grid-container">
         <header className="row">
           <div>
-            <a className="brand" href="/">
+            <Link className="brand" to="/">
               venus
-            </a>
+            </Link>
           </div>
           <div>
-            <a href="/cart">Cart</a>
-            <a href="/signin">Sign In</a>
+            <Link to="/cart">
+              Cart
+              {cartItems.length > 0 && (
+                <span className="badge">{cartItems.length}</span>
+              )}
+            </Link>
+            <Link to="/signin">Sign In</Link>
           </div>
         </header>
         <main>
