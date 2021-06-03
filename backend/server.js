@@ -1,9 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 
+dotenv.config();
+
 const app = express();
+//it parses json data in the body of request
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //to connect mongoose to mangodb we need 2 parameters;
 //first one, is the link of localhost
 //second one, is options
