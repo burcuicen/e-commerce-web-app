@@ -1,8 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { BrowserRouter, Route } from "react-router-dom";
+import { signout } from "./actions/userActions";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
@@ -13,6 +14,12 @@ function App() {
   //to display the count of objects in the cart in real time to the user i first should access the cartItems
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -29,7 +36,22 @@ function App() {
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
-            <Link to="/signin">Sign In</Link>
+            {userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}
           </div>
         </header>
         <main>
@@ -38,7 +60,7 @@ function App() {
           {/* Defining a new route for product screen */}
           <Route path="/product/:id" component={ProductScreen}></Route>
           {/* Defining a new route for sign in screen */}
-          <Route path="/" component={SigninScreen}></Route>
+          <Route path="/signin" component={SigninScreen}></Route>
           {/* main route of home screen */}
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
