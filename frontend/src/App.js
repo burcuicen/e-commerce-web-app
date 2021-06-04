@@ -7,6 +7,7 @@ import { signout } from "./actions/userActions";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 import SigninScreen from "./screens/SigninScreen";
 //if you use anchor on links it automatically refreshes the page thats why i will use link instead of anchor
 
@@ -61,6 +62,8 @@ function App() {
           <Route path="/product/:id" component={ProductScreen}></Route>
           {/* Defining a new route for sign in screen */}
           <Route path="/signin" component={SigninScreen}></Route>
+          {/* Defining a new route for register screen */}
+          <Route path="/register" component={RegisterScreen}></Route>
           {/* main route of home screen */}
           <Route path="/" component={HomeScreen} exact></Route>
         </main>

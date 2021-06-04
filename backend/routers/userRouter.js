@@ -45,4 +45,32 @@ userRouter.post(
     res.status(401).send({ message: "Invalid email or password, try again" });
   })
 );
+//sending post request for user register
+userRouter.post(
+  "/register",
+  expressAsyncHandler(async (req, res) => {
+    //creating new user
+    const user = new User({
+      //collecting the info user enters in name input
+      name: req.body.name,
+      //collecting the info user enters in email input
+      email: req.body.email,
+      //collecting the info user enters in password input and encrypt it using bcrypt
+      password: bcrypt.hashSync(req.body.password, 8),
+    });
+    //creatiing a new user and set the new user to created user above
+
+    const createdUser = await user.save();
+    //it sends the info of user to frontend
+    res.send({
+      _id: createdUser.id,
+      name: createdUser.name,
+      email: createdUser.email,
+      isAdmin: createdUser.isAdmin,
+      //i will use jsonwebtoken to generate token
+      token: generateToken(createdUser),
+    });
+  })
+);
+
 export default userRouter;

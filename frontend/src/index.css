@@ -236,3 +236,6 @@ img.medium {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.loading{
+  display:block !important;
+}
