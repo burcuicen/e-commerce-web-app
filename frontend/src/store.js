@@ -24,6 +24,9 @@ const initialState = {
       ? //if there are products that costmer added to cart, get them if not an empty basket
         JSON.parse(localStorage.getItem("cartItems"))
       : [],
+    shippingAddress: localStorage.getItem("shippingAddress")
+      ? JSON.parse(localStorage.getItem("shippingAddress"))
+      : {},
   },
 };
 const reducer = combineReducers({

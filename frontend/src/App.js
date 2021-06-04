@@ -8,6 +8,7 @@ import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
 //if you use anchor on links it automatically refreshes the page thats why i will use link instead of anchor
 
@@ -64,6 +65,9 @@ function App() {
           <Route path="/signin" component={SigninScreen}></Route>
           {/* Defining a new route for register screen */}
           <Route path="/register" component={RegisterScreen}></Route>
+          {/* Defining a new route for shipping screen */}
+          <Route path="/shipping" component={ShippingAddressScreen}></Route>
+
           {/* main route of home screen */}
           <Route path="/" component={HomeScreen} exact></Route>
         </main>

@@ -239,3 +239,21 @@ img.medium {
 .loading{
   display:block !important;
 }
+/*Checkout Steps*/
+.checkout-steps>div{
+  border-top: 0.3rem #c0c0c8 solid;
+  color:#c0c0c8;
+  flex:1;
+  padding:1rem;
+  font-weight: bold;
+
+  
+}
+.checkout-steps>div.active{
+  border-top-color:purple;
+  color:purple;
+  font-weight: bold;
+}
+input{
+  background-color: white;
+}
