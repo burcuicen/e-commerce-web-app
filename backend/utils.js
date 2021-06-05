@@ -15,3 +15,28 @@ export const generateToken = (user) => {
     }
   );
 };
+//to define the user that creates the user we neeed to implement middleware for it
+
+export const isAuth = (req, res, next) => {
+  const authorization = req.headers.authorization;
+  //if user is authorızed vertify its token
+  if (authorization) {
+    const token = authorization.slice(7, authorization.length); //for example: Diamond XXXXXX, We need last 6 digits
+    //using jwt to vertify token
+    jwt.verify(
+      token,
+      //fetching the secret word if exist
+      process.env.JWT_SECRET || "somesecretkeyword",
+      (err, decode) => {
+        if (err) {
+          res.status(401).send({ message: "Invalid Token" });
+        } else {
+          req.user = decode;
+          next();
+        }
+      }
+    );
+  } else {
+    res.status(401).send({ message: "No Token" });
+  }
+};

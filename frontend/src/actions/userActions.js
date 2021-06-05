@@ -53,7 +53,10 @@ export const register = (name, email, password) => async (dispatch) => {
   }
 };
 export const signout = () => (dispatch) => {
+  //blocks the actions of signed out user
   localStorage.removeItem("userInfo");
   localStorage.removeItem("cartItems");
+  localStorage.removeItem("shippingAddress");
+
   dispatch({ type: USER_SIGNOUT });
 };

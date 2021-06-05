@@ -6,6 +6,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { signout } from "./actions/userActions";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
+import OrderScreen from "./screens/OrderScreen";
+import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import ProductScreen from "./screens/ProductScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
@@ -67,6 +70,12 @@ function App() {
           <Route path="/register" component={RegisterScreen}></Route>
           {/* Defining a new route for shipping screen */}
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
+          {/* Defining a new route for payment method screen */}
+          <Route path="/payment" component={PaymentMethodScreen}></Route>
+          {/* Defining a new route for place order screen */}
+          <Route path="/placeorder" component={PlaceOrderScreen}></Route>
+          {/* Defining a new route for place order details screen */}
+          <Route path="/order/:id" component={OrderScreen}></Route>
 
           {/* main route of home screen */}
           <Route path="/" component={HomeScreen} exact></Route>

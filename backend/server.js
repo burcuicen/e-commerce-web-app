@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
+import orderRouter from "./routers/orderRouter.js";
 
 dotenv.config();
 
@@ -21,8 +22,9 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/venus", {
   useCreateIndex: true,
 });
 
-app.use("/api/users", userRouter);
-app.use("/api/products", productRouter);
+app.use("/api/users", userRouter); //using api for users
+app.use("/api/products", productRouter); //using api for products
+app.use("/api/orders", orderRouter); //using api for orders
 
 app.get("/", (req, res) => {
   res.send("Server works");
