@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 
 import { BrowserRouter, Route } from "react-router-dom";
 import { signout } from "./actions/userActions";
+import PrivateRoute from "./components/PrivateRoute";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
 import OrderScreen from "./screens/OrderScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import ProductScreen from "./screens/ProductScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
@@ -48,6 +50,9 @@ function App() {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
+                    <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
                     <Link to="#signout" onClick={signoutHandler}>
                       Sign Out
                     </Link>
@@ -76,6 +81,11 @@ function App() {
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           {/* Defining a new route for place order details screen */}
           <Route path="/order/:id" component={OrderScreen}></Route>
+          {/* Defining a new route for place profilescreen */}
+          <PrivateRoute
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRoute>
 
           {/* main route of home screen */}
           <Route path="/" component={HomeScreen} exact></Route>

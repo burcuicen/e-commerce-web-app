@@ -203,14 +203,22 @@ img.medium {
 .form label{
   margin:1rem 0;
 }
+#name{
+  background-color: white;
+  border:1px solid purple;
+  color:black;
+}
 #email{
   background-color: white;
   border:1px solid purple;
   color:black;
-
-
 }
 #password{
+  background-color: white;
+  border:1px solid purple;
+  color:black
+}
+#confirmPassword{
   background-color: white;
   border:1px solid purple;
   color:black
@@ -256,3 +264,4 @@ img.medium {
 input{
   background-color: white;
 }
+
