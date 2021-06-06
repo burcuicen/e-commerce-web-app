@@ -40,3 +40,13 @@ export const isAuth = (req, res, next) => {
     res.status(401).send({ message: "No Token" });
   }
 };
+//isAdmin function to vertify admin's token to let the admin see the contents of admin route
+export const isAdmin = (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
+    //sending request to server to check if user is admin(using its token)
+    next();
+  } else {
+    //sending message from server if admin tokens do not match
+    res.status(401).send({ message: "Invalid Admin Token" });
+  }
+};
