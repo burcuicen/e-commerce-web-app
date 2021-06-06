@@ -15,7 +15,7 @@ const data = {
       email: "sally@gmail.com",
       //using bcrypt library to encode the password
       password: bcrypt.hashSync("123456", 8),
-      isAdmin: false,
+      isAdmin: true,
     },
     {
       name: "johndoe",
