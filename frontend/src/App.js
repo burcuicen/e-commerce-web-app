@@ -8,7 +8,6 @@ import AdminRoute from "./components/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
-import OrderListScreen from "./screens/OrderListScreen";
 import OrderScreen from "./screens/OrderScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
@@ -20,6 +19,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
 import UserListScreen from "./screens/UserListScreen";
+import OrderListScreen from "./screens/OrderListScreen";
 
 //if you use anchor on links it automatically refreshes the page thats why i will use link instead of anchor
 
@@ -77,9 +77,6 @@ function App() {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li>
-                  <li>
                     <Link to="/productlist">Products</Link>
                   </li>
                   <li>
@@ -117,6 +114,7 @@ function App() {
           {/* Defining a new route for place order details screen */}
           <Route path="/order/:id" component={OrderScreen}></Route>
           {/* Defining a new route for place profilescreen, only costumers who are logged in users can see the content of this route */}
+
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}
@@ -127,13 +125,13 @@ function App() {
             component={ProductListScreen}
           ></AdminRoute>
           <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
-          <Route path="/" component={HomeScreen} exact></Route>
           <AdminRoute
             path="/orderlist"
             component={OrderListScreen}
           ></AdminRoute>
+          <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="row center">All right reserved</footer>
+        <footer className="row center">Created by Burcu İçen 2021</footer>
       </div>
     </BrowserRouter>
   );

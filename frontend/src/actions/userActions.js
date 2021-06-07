@@ -71,7 +71,7 @@ export const signout = () => (dispatch) => {
   localStorage.removeItem("shippingAddress");
 
   dispatch({ type: USER_SIGNOUT });
-  document.location.href = "/signin";
+  document.location.location.href = "/signin";
 };
 //defining detailsUser
 //It fetches data from api if it successfull,sends an ajax request with error handling

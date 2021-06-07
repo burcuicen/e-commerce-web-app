@@ -57,7 +57,7 @@ export default function ProductListScreen(props) {
   return (
     <div>
       <div className="row">
-        <h1>Products</h1>
+        <h1 className="o">Products</h1>
 
         <button type="button" className="primary" onClick={createHandler}>
           Create Product
@@ -72,21 +72,23 @@ export default function ProductListScreen(props) {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <table className="table adminC">
           <thead>
             <tr>
-              <th>ID</th>
               <th>NAME</th>
+
               <th>PRICE</th>
+
               <th>CATEGORY</th>
+
               <th>ACTIONS</th>
             </tr>
           </thead>
+          <br></br>
           <tbody>
             {/*mapping products into a product object*/}
             {products.map((product) => (
               <tr key={product._id}>
-                <td>{product._id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.category}</td>

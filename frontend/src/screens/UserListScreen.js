@@ -25,7 +25,7 @@ export default function UserListScreen() {
   };
   return (
     <div>
-      <h1>Users</h1>
+      <h1 className="o">Users</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
       {successDelete && (
@@ -36,13 +36,11 @@ export default function UserListScreen() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <table className="table adminC">
           <thead>
             <tr>
-              <th>ID</th>
               <th>NAME</th>
               <th>EMAIL</th>
-              <th>IS SELLER</th>
               <th>IS ADMIN</th>
               <th>ACTIONS</th>
             </tr>
@@ -50,10 +48,8 @@ export default function UserListScreen() {
           <tbody>
             {users.map((user) => (
               <tr key={user._id}>
-                <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>{user.isSeller ? "YES" : " NO"}</td>
                 <td>{user.isAdmin ? "YES" : "NO"}</td>
                 <td>
                   <button type="button" className="small">

@@ -49,12 +49,7 @@ export default function ProductScreen(props) {
                 <li>
                   <h1>{product.name}</h1>
                 </li>
-                <li>
-                  <Rating
-                    rating={product.rating}
-                    numReviews={product.numReviews}
-                  ></Rating>
-                </li>
+
                 <li>Price : ${product.price}</li>
                 <li>
                   Description:
@@ -62,8 +57,8 @@ export default function ProductScreen(props) {
                 </li>
               </ul>
             </div>
-            <div className="col-1">
-              <div className="card card-body">
+            <div className="col-1 ">
+              <div className="card card-body info">
                 <ul>
                   <li>
                     <div className="row">
