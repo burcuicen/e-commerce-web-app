@@ -1,4 +1,9 @@
 import {
+  ORDER_LIST_FAIL,
+  ORDER_LIST_REQUEST,
+  ORDER_LIST_SUCCESS,
+} from "../constants/orderConstants";
+import {
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_REQUEST,
   PRODUCT_CREATE_RESET,
@@ -82,6 +87,18 @@ export const productDeleteReducer = (state = {}, action) => {
       return { loading: false, error: action.payload };
     case PRODUCT_DELETE_RESET:
       return {};
+    default:
+      return state;
+  }
+};
+export const orderListReducer = (state = { orders: [] }, action) => {
+  switch (action.type) {
+    case ORDER_LIST_REQUEST:
+      return { loading: true };
+    case ORDER_LIST_SUCCESS:
+      return { loading: false, orders: action.payload };
+    case ORDER_LIST_FAIL:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

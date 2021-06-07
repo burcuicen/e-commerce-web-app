@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema(
     password: { type: String, required: true },
     //there are 2 types of users, admins and costumers. This boolean value checks if user is an admin or costumer
     isAdmin: { type: Boolean, default: false, required: true },
+    isSeller: { type: Boolean, default: false, required: true },
   },
   {
     //it shows the time of last changes of the user in the database

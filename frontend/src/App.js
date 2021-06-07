@@ -8,6 +8,7 @@ import AdminRoute from "./components/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
+import OrderListScreen from "./screens/OrderListScreen";
 import OrderScreen from "./screens/OrderScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
@@ -18,6 +19,8 @@ import ProfileScreen from "./screens/ProfileScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
+import UserListScreen from "./screens/UserListScreen";
+
 //if you use anchor on links it automatically refreshes the page thats why i will use link instead of anchor
 
 function App() {
@@ -123,9 +126,12 @@ function App() {
             path="/productlist"
             component={ProductListScreen}
           ></AdminRoute>
-
-          {/* main route of home screen */}
+          <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
           <Route path="/" component={HomeScreen} exact></Route>
+          <AdminRoute
+            path="/orderlist"
+            component={OrderListScreen}
+          ></AdminRoute>
         </main>
         <footer className="row center">All right reserved</footer>
       </div>

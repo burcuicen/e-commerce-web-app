@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 import { detailsOrder } from "../actions/orderActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-//fetching the data from backend and displaying in frontend using this screen
+
 export default function OrderScreen(props) {
   const orderId = props.match.params.id;
-  //fetch order details from redux store
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(detailsOrder(orderId)); //dispatching details of order using its id
-  }, [dispatch, orderId]);
+    dispatch(detailsOrder(orderId));
+  }, [dispatch, orderId, order]);
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
@@ -101,7 +100,18 @@ export default function OrderScreen(props) {
                   <div>${order.itemsPrice.toFixed(2)}</div>
                 </div>
               </li>
-
+              <li>
+                <div className="row">
+                  <div>Shipping</div>
+                  <div>${order.shippingPrice.toFixed(2)}</div>
+                </div>
+              </li>
+              <li>
+                <div className="row">
+                  <div>Tax</div>
+                  <div>${order.taxPrice.toFixed(2)}</div>
+                </div>
+              </li>
               <li>
                 <div className="row">
                   <div>

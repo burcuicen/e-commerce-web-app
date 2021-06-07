@@ -2,9 +2,19 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModel.js";
-import { isAuth } from "../utils.js";
+import { isAdmin, isAuth } from "../utils.js";
 //creating express router
 const orderRouter = express.Router();
+//this router sends request of list of orders
+orderRouter.get(
+  "/",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({}).populate("user", "name");
+    res.send(orders);
+  })
+);
 //post request to mongodb
 orderRouter.post(
   "/",
@@ -48,4 +58,5 @@ orderRouter.get(
     }
   })
 );
+
 export default orderRouter;
