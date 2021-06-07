@@ -37,7 +37,7 @@ export default function OrderListScreen(props) {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table adminC">
+        <table className="table adminC ord">
           <thead>
             <tr>
               <th>DATE</th>
@@ -55,7 +55,7 @@ export default function OrderListScreen(props) {
                 <td>
                   <button
                     type="button"
-                    className="small"
+                    className="small buttonS"
                     onClick={() => {
                       props.history.push(`/order/${order._id}`);
                     }}
@@ -64,7 +64,7 @@ export default function OrderListScreen(props) {
                   </button>
                   <button
                     type="button"
-                    className="small"
+                    className="small buttonS"
                     onClick={() => deleteHandler(order)}
                   >
                     Delete

@@ -95,7 +95,7 @@ export default function ProductListScreen(props) {
                 <td>
                   <button
                     type="button"
-                    className="small"
+                    className="small buttonS"
                     //edit action,redirect to product details screen to edit the product
                     onClick={() =>
                       props.history.push(`/product/${product._id}/edit`)

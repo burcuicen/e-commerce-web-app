@@ -266,10 +266,47 @@ input{
 
 }
  th,td {
-  border: 0.2px solid black;
+  border: 0.2px solid purple;
   text-align: center;
 }
+th{
+  border-bottom:0.2px solid purple;
+  border-top: none;
+  
+}
+td:nth-child(4){
+  border-bottom:none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+
+}
+
 .o{
   text-align: center;
   font-size: xx-large;
 }
+.buttonS{
+  margin:10px;
+  border:none;
+}
+td,th{
+  border-bottom:0.2px solid black;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+
+}
+.ord.td:nth-child(3){
+  border-bottom:none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+
+}
+
+
+
+
+
+
