@@ -10,9 +10,10 @@ export default function Product(props) {
       </Link>
       <div className="card-body">
         <Link to={`/product/${product._id}`}>
-          <h2>{product.name}</h2>
+          <h2 className="productName">{product.name}</h2>
         </Link>
-
+        <div className="category">{product.category}</div>
+        <br></br>
         <div className="price">{product.price}$</div>
       </div>
     </div>

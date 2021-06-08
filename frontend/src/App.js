@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 //main
 import { BrowserRouter, Route } from "react-router-dom";
 import { signout } from "./actions/userActions";
@@ -44,7 +45,7 @@ function App() {
           </div>
           <div>
             <Link to="/cart">
-              Cart
+              <i className="fa fa-shopping-cart clo"></i>
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
@@ -66,7 +67,10 @@ function App() {
                 </ul>
               </div>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">
+                {" "}
+                <i class="fa fa-user user-i"></i>
+              </Link>
             )}
             {/* Creating admin settings(only admins can see this space) */}
 

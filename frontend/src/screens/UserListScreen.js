@@ -52,9 +52,6 @@ export default function UserListScreen() {
                 <td>{user.email}</td>
                 <td>{user.isAdmin ? "YES" : "NO"}</td>
                 <td>
-                  <button type="button" className="small">
-                    Edit
-                  </button>
                   <button
                     type="button"
                     className="small"

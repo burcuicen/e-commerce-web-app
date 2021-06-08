@@ -19,6 +19,15 @@ export default function HomeScreen() {
   //check if any error exists, if not return products
   return (
     <div>
+      <div class="row">
+        <img
+          class="headerimg"
+          src="https://i.ibb.co/mTB4LKy/Venus-Jewelry-1.png"
+        ></img>
+      </div>
+      <div>
+        <h1 class="headerh1">Shop Now!</h1>
+      </div>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
